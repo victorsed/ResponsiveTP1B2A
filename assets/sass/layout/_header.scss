@@ -1,0 +1,137 @@
+@mixin AbsolutePositionL($top,$left,$mozY,$msY,$wbkY,$tY) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    -moz-transform: translateY($mozY);
+    -ms-transform: translateY($msY);
+    -webkit-transform: translateY($wbkY);
+    transform: translateY($tY);
+}
+@mixin AbsolutePositionR($top,$right,$mozY,$msY,$wbkY,$tY) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    -moz-transform: translateY($mozY);
+    -ms-transform: translateY($msY);
+    -webkit-transform: translateY($wbkY);
+    transform: translateY($tY);
+}
+.header{
+    display: -webkit-flex;
+    display: flex;
+
+    &-main {
+        background: white;
+        padding: 27px 40px;
+        position: relative;
+        transition: 0.3s all;
+
+        &.fixed{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: white;
+            transition: 0.3s all;
+            z-index: 9999;
+
+            .header-right-part {
+                right: 10%
+            }
+        }
+    }
+
+    &-logo{
+        @media screen and (max-width: 1100px) {
+            padding: 1rem;
+            position: relative;
+            align-self: stretch;
+            
+        }
+        img{
+            margin-top: 10px;
+            width: 140px;
+        }
+    }
+
+    &-social--link{
+        ul{
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+        }
+        li{
+            margin: 0px 7px
+        }
+
+    }
+
+    &-single--title{
+        position: relative;
+        margin-left: 50px;
+        @media screen and (max-width: 1100px) {
+            display: none;     
+        }
+
+        &:before {
+            content: "|";
+            position: absolute;
+            color: #E5DBD1;
+            font-size: 12px;
+            @include AbsolutePositionL(50%,-25px ,-50% ,-50% ,-50% ,-50% );
+        }
+
+        p{    font-size: 16px;
+            color: #5D534F;
+        }
+
+    }
+
+    &-left-part{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        @include AbsolutePositionL( 50%, 30px, -50%, -50%, -50%, -50% );
+        @media screen and (max-width: 1100px) {
+            padding: 0.5rem;
+            flex-direction: column;
+            align-items: flex-start;
+
+        }
+
+    }
+
+    &-right-part {
+        @include AbsolutePositionR( 50%, 30px, -50%, -50%, -50%, -50% );
+    }
+
+    &-category{
+        margin-left: 40px;
+        @media screen and (max-width: 1100px) {
+            display: none;     
+        }
+
+        p{
+            text-transform: uppercase;
+            color: #003B5C;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+
+            span {
+                color: #C3C3C3;
+                text-transform: lowercase;
+                font-weight: 500
+            }
+
+        }
+    }
+}

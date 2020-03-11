@@ -1,0 +1,102 @@
+@mixin Content {
+    content: "";
+    position: absolute;
+    width: 40%;
+    border-top: 4px double #E5DBD1;
+    height: 20px;
+    top: 50%;
+    left: 0%;
+    z-index: -1;
+}
+
+.related-posts{
+    clear: both;
+    margin: 60px 0px;
+    padding: 20px;
+
+    .title-related {
+        position: relative;
+        margin-bottom: 20px;
+
+        &:after {
+            @include Content;
+        }
+
+        &:before {
+            @include Content;
+        }
+        p {
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            line-height: 32px;
+            font-family: 'Playfair Display', serif;
+            color: #003B5C;
+            text-transform: uppercase;
+            text-align: center;
+            display: table;
+            margin: 0px auto 20px;
+            border: 1px solid #E5DBD1;
+            padding: 5px 20px;
+            box-shadow: 3px 3px 0px #E5DBD1;
+            position: relative;
+            background: white;
+        }
+    }
+    .related-posts--wrapper {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+    }
+
+    .post-item {
+        width: 32%;
+
+        img {
+            width: 100%
+        }
+
+        .cat {
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 12px;
+            
+            p {
+                color: #003B5C;
+                text-transform: uppercase;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+
+                span {
+                    color: #C3C3C3;
+                    text-transform: lowercase;
+                }
+            }
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #003B5C;
+            line-height: 31px;
+            margin: 10px 0px;
+        }
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #E74832;
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            
+            svg {
+                margin-left: 10px;
+                vertical-align: middle
+            }
+        }
+        
+
+    }
+    
+    
+}
